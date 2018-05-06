@@ -9,5 +9,11 @@ EditorBuildSettings:
     path: Assets/Menu.unity
     guid: e75455f625a7c6c4fa900f056242bce4
   - enabled: 1
+    path: Assets/HyperLuminal/2D Fantasy Forest Tileset/Scenes/DayTime_DemoScene.unity
+    guid: fb59a90f681fe1641a94fd4775f0c325
+  - enabled: 0
+    path: Assets/Tiger/Tiger.unity
+    guid: 194f435cf74a85c439b506089d53d817
+  - enabled: 1
     path: Assets/Level01.unity
     guid: a4bd3239e62abea4991719f84790f118
