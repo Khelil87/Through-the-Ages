@@ -32,3 +32,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/com/heparo/terrain/toolkit/original/TerrainToolkit_1_0_2.unitypackage.meta
+Assets/com/heparo/terrain/toolkit/original/TerrainToolkit_1_0_2.unitypackage.meta
+Assets/Overworld.unity.meta
