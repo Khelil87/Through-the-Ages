@@ -4,7 +4,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class TigerAttack : MonoBehaviour
 {
-    public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
+    public float timeBetweenAttacks = 2.0f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
     public bool canAttack = false;
     public int attackHASH = Animator.StringToHash("Attack");

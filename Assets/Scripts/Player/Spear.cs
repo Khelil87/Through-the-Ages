@@ -4,17 +4,17 @@ public class Spear : MonoBehaviour
 {
     public float throwDamage = 10f;
     public float throwRange = 20f;
-    public float throwForce = 10;
+    public float throwForce = 1000;
     Vector3 pos;
     Quaternion rot;
     Vector3 scale;
 
     public Camera fpsCam;
     public Transform playerCam;
-  
 
-    
-    bool beingCarried;
+
+
+    bool beingCarried = true;
     GameObject tiger = GameObject.FindGameObjectWithTag("Tiger");
 
 
@@ -27,10 +27,9 @@ public class Spear : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        beingCarried = true;
-
         if (beingCarried == true)
         {
+            
             GetComponent<Rigidbody>().isKinematic = true;
             pos = transform.position;
             rot = transform.rotation;
@@ -71,7 +70,7 @@ public class Spear : MonoBehaviour
         this.GetComponent<Rigidbody>().isKinematic = false;
         this.GetComponent<Rigidbody>().useGravity = true;
         
-        //GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
+        GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, throwRange))
