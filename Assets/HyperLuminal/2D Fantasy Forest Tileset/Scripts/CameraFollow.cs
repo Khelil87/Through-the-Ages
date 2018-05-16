@@ -8,17 +8,17 @@ public class CameraFollow : MonoBehaviour
 	/// <summary>
 	/// The distance the player can move before the camera follows
 	/// </summary>
-	public Vector2 Margins;	
+	public Vector2 Margins;
 
-	/// <summary>
-	/// The maximum x and y coordinates the camera can have
-	/// </summary>
-	public Vector2 MAXBounds;
+    /// <summary>
+    /// The maximum x and y coordinates the camera can have
+    /// </summary>
+    public Vector2 MAXBounds;// = new Vector2(4, 5);
 
-	/// <summary>
-	/// The minimum x and y coordinates the camera can have
-	/// </summary>
-	public Vector2 MINBounds;
+    /// <summary>
+    /// The minimum x and y coordinates the camera can have
+    /// </summary>
+    public Vector2 MINBounds;// = new Vector2(-15, -30);
 
 	/// <summary>
 	/// The player character
@@ -35,7 +35,9 @@ public class CameraFollow : MonoBehaviour
 	{
 		// get the players transform
 		PlayerTransform = PlayerCharacter.transform;
-	}
+        MAXBounds = new Vector2(4, 5);
+        MINBounds = new Vector2(-15, -30);
+    }
 	
 	void Update ()
 	{
