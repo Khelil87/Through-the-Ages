@@ -68,9 +68,9 @@ public class Spear : MonoBehaviour
         beingCarried = false;
         transform.parent = null;
         this.GetComponent<Rigidbody>().isKinematic = false;
-        this.GetComponent<Rigidbody>().useGravity = true;
+        //this.GetComponent<Rigidbody>().useGravity = true;
         
-        GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
+        this.GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, throwRange))
