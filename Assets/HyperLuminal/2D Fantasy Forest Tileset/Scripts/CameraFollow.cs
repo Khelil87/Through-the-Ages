@@ -35,8 +35,9 @@ public class CameraFollow : MonoBehaviour
 	{
 		// get the players transform
 		PlayerTransform = PlayerCharacter.transform;
+		Margins = new Vector2 (2, 3);
         MAXBounds = new Vector2(4, 5);
-        MINBounds = new Vector2(-15, -30);
+        MINBounds = new Vector2(-20, -30);
     }
 	
 	void Update ()
@@ -48,6 +49,7 @@ public class CameraFollow : MonoBehaviour
 		if(CheckXMargin())
 		{
 			// the target X-coordinate should be a Lerp between the camera's current x position and the player's current x position.
+			//Debug.LogWarning("check x is true");
 			target.x = Mathf.Lerp(transform.position.x, PlayerTransform.position.x , 8.0f * Time.deltaTime);
 		}
 		
@@ -55,6 +57,7 @@ public class CameraFollow : MonoBehaviour
 		if(CheckYMargin())
 		{
 			// The target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
+			Debug.LogWarning("check y is true");
 			target.y = Mathf.Lerp(transform.position.y, PlayerTransform.position.y , 8.0f * Time.deltaTime);
 		}
 		
@@ -73,6 +76,9 @@ public class CameraFollow : MonoBehaviour
 	bool CheckXMargin()
 	{
 		// Returns true if the distance between the camera and the player in the x axis is greater than the x margin.
+		//Debug.LogWarning(transform.position.x);
+		//Debug.LogWarning(PlayerTransform.position.x);
+		//Debug.LogWarning(Margins.x);
 		return Mathf.Abs(transform.position.x - PlayerTransform.position.x) > Margins.x;
 	}
 	
@@ -83,6 +89,7 @@ public class CameraFollow : MonoBehaviour
 	bool CheckYMargin()
 	{
 		// Returns true if the distance between the camera and the player in the y axis is greater than the y margin.
+		//Debug.LogWarning(Margins.y);
 		return Mathf.Abs(transform.position.y - PlayerTransform.position.y) > Margins.y;
 	}
 }

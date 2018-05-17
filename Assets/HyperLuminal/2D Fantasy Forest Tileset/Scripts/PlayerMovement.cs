@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -28,6 +30,23 @@ public class PlayerMovement : MonoBehaviour
 	/// Is the player dead?
 	/// </summary>
 	private bool isDead = false;
+
+	/// <summary>
+	/// Random event generator
+	/// </summary>
+	private System.Random rand;
+
+	/// <summary>
+	/// Number of trasures collected
+	/// </summary>
+	private int collectibles;
+
+	/// <summary>
+	/// For debugging purposes, stops combat
+	/// </summary>
+	public bool combat = true;
+
+	public Vector3 playerTransform;
 	#endregion
 
 	// Use this for initialization
@@ -35,10 +54,15 @@ public class PlayerMovement : MonoBehaviour
 	{
 		// get the local reference
 		animator = GetComponent<Animator>();
-
+		rand = new System.Random ();
 		// set initial position
 		lastPosition = transform.position;
 		CheckPointPosition = transform.position;
+
+		// load from global
+		playerTransform = GlobalControl.Instance.playerTransform;
+		GameObject.FindWithTag("Player").transform.position = playerTransform;
+		collectibles = GlobalControl.Instance.collectibles;
 	}
 	
 	// Update is called once per frame
@@ -93,6 +117,16 @@ public class PlayerMovement : MonoBehaviour
 			animator.speed = 0.35f;
 		}
 
+		if (vertical != 0 && horizontal != 0) 
+		{
+			if (rand.Next (100) == 1 && combat) 
+			{
+				SaveState ();
+				int levelID = Application.loadedLevel + 1;
+				Application.LoadLevel(levelID);
+			}
+		}
+
 		//compare this position to the last known one, are we moving?
 		if(this.transform.position == lastPosition)
 		{
@@ -114,15 +148,26 @@ public class PlayerMovement : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if(collider.gameObject.tag == "DangerousTile")
+		if (collider.gameObject.tag == "DangerousTile") 
 		{
-			GameObject.Find("FadePanel").GetComponent<FadeScript>().RespawnFade();
+			GameObject.Find ("FadePanel").GetComponent<FadeScript> ().RespawnFade ();
 			isDead = true;
 		}
-		else if(collider.gameObject.tag == "LevelChanger")
+
+		else if (collider.gameObject.tag == "LevelChanger") 
 		{
-			GameObject.Find("FadePanel").GetComponent<FadeScript>().FadeOut();
+			GameObject.Find ("FadePanel").GetComponent<FadeScript> ().FadeOut ();
 			isDead = true;
+		}
+
+		else if (collider.gameObject.tag == "Collectible") 
+		{
+			if (++collectibles == 4) 
+			{
+				//int levelID = Application.loadedLevel - 1;
+				//Application.LoadLevel(levelID);
+				SceneManager.LoadScene("Game Win");
+			}
 		}
 	}
 
@@ -134,6 +179,16 @@ public class PlayerMovement : MonoBehaviour
 		// if we hit a dangerous tile then we are dead so go to the checkpoint position that was last saved
 		transform.position = CheckPointPosition;
 		isDead = false;
+	}
+
+	public void SaveState()
+	{
+		GlobalControl.Instance.collectibles = collectibles;
+		//GlobalControl.Instance.collectible_r = collectible_r;
+		//GlobalControl.Instance.collectible_b = collectible_b;
+		//GlobalControl.Instance.collectible_g = collectible_g;
+		//GlobalControl.Instance.collectible_y = collectible_y;
+		GlobalControl.Instance.playerTransform = transform.position;
 	}
 
 }
