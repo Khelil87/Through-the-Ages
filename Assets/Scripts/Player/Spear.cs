@@ -5,6 +5,8 @@ public class Spear : MonoBehaviour
     public float throwDamage = 10f;
     public float throwRange = 20f;
     public float throwForce = 1000;
+    public float respawnTime = 5.0f;
+    float timer;
     Vector3 pos;
     Quaternion rot;
     Vector3 scale;
@@ -13,20 +15,27 @@ public class Spear : MonoBehaviour
     public Transform playerCam;
 
 
-
-    bool beingCarried = true;
+    bool thrown;
+    bool beingCarried;
     GameObject tiger = GameObject.FindGameObjectWithTag("Tiger");
-
+    Spear clone;
 
     private void Awake()
     {
-        
-
+        beingCarried = true;
+        thrown = false;
     }
 
     // Update is called once per frame
     void Update ()
     {
+        timer += Time.deltaTime;
+        if (timer > respawnTime)
+        {
+            thrown = false;
+            beingCarried = true;
+        }
+
         if (beingCarried == true)
         {
             
@@ -65,12 +74,16 @@ public class Spear : MonoBehaviour
 
     void Throw()
     {
+        timer = 0f;
+        
+        thrown = true;
+
         beingCarried = false;
         transform.parent = null;
-        this.GetComponent<Rigidbody>().isKinematic = false;
-        //this.GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+        //clone.GetComponent<Rigidbody>().useGravity = true;
         
-        this.GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
+        GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, throwRange))
@@ -81,6 +94,7 @@ public class Spear : MonoBehaviour
                 tigerHealth.TakeDamage(throwDamage);
             }
         }
+
     }
 
     void Stab()
@@ -95,12 +109,15 @@ public class Spear : MonoBehaviour
             TigerHealth tigerHealth = tiger.GetComponent<TigerHealth>();
             if (tigerHealth != null)
             {
-                tigerHealth.TakeDamage(throwDamage);
-                Destroy(gameObject);
+                if (thrown == true)
+                {
+                    tigerHealth.TakeDamage(throwDamage);
+                    //Destroy(gameObject);
+                }
             }
             else
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
