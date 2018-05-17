@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
@@ -93,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
         playerAudio.clip = deathClip;
         playerAudio.Play();
-
+		SceneManager.LoadScene ("GameLose");
         // Turn off the movement and shooting scripts.
         //playerMovement.enabled = false;
         //playerShooting.enabled = false;

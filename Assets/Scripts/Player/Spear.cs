@@ -17,7 +17,7 @@ public class Spear : MonoBehaviour
 
     bool thrown;
     bool beingCarried;
-    GameObject tiger = GameObject.FindGameObjectWithTag("Tiger");
+	GameObject tiger;// = GameObject.FindGameObjectWithTag("Tiger");
     Spear clone;
 
     private void Awake()
@@ -74,11 +74,13 @@ public class Spear : MonoBehaviour
 
     void Throw()
     {
+
         timer = 0f;
         
         thrown = true;
 
         beingCarried = false;
+
         transform.parent = null;
         GetComponent<Rigidbody>().isKinematic = false;
         //clone.GetComponent<Rigidbody>().useGravity = true;
@@ -106,6 +108,7 @@ public class Spear : MonoBehaviour
     {
         if(other.gameObject == tiger)
         {
+			tiger = GameObject.FindGameObjectWithTag("Tiger");
             TigerHealth tigerHealth = tiger.GetComponent<TigerHealth>();
             if (tigerHealth != null)
             {
