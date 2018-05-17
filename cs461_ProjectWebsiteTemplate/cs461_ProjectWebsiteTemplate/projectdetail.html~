@@ -1,0 +1,122 @@
+<!-- This template is to be used by each project team of CS410 course to showcase their project by providing description, screenshots and video demo of their project -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+	<title>CS410 Projects</title>
+	<!-- The CSS file used for this web page -->
+	<link href="css/projectstyle.css" rel="stylesheet" type="text/css" />
+	<!-- The files used for PrettyPhoto plugin to display images -->
+	<script src="js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+	default_width: 800,
+			default_height: 644,social_tools:false,allow_resize:true});
+  });
+  </script>
+	<div id="container">
+		<div id="inner-container">
+		<!-- HEADER section, contains logo and contact information -->
+			<div id="head">
+				<div id="logo">
+					<a href="./project.html"><img src="images/logo.jpg" width="100px" /></a>
+				</div>
+				<div id="righthead">
+					<p>
+						<b>Introduction to Software Engineering <br />(CS410)<br />Prof. Craig Yu<br />craigyu@cs.umb.edu</b>
+					</p>
+				</div>
+				<!-- NAVIGATION MENU -->
+				<div id="navbar">
+					<ul>
+						<li><a href="./project.html">Home</a></li>
+						<li><a href="http://www.umb.edu/">My UMB</a></li>
+						<li><a href="http://www.cs.umb.edu/">My Department</a></li>
+						<li class="dropdown"><a href="http://www.cs.umb.edu/~craigyu/cs410/Password_Only/index.html" >Course CS410</a>
+							<ul id="drop">
+								<li><a href="./project.html">Spring 2015</a></li>
+							</ul>
+						</li>
+						<li><a href="http://lapfaiyu.org/teaching.html">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End of navigation menu -->
+			<!-- End of header -->
+			<!-- MAIN CONTENT starts here -->
+			<div id="content">
+				<div id="maincolumn">
+				<!-- ABOUT PROJECT -->
+					<!-- Mention your project name -->
+					<br /><h1>Project Name</h1><br /><br />
+					<!-- Write the name of the image file which you want to display as a logo. Keep all the images under images/logo folder. -->
+					<div id="images" style="height:255px;width:50%;float:left;">
+						<img src="images/logo/logo.jpg" height="200" width="275" />
+					</div>
+					<!-- Give a description about your project. -->
+					<div id="description" style="height:155px;width:50%;float:right;">
+						<p>The Project Resource Center is created for the CS410 course to collate all the projects created by the students in this course. It provides a platform to showcase the projects created by students. It provides a chance for people to connect with the project teams to use their project and put it to a better use. It also helps other students to connect and work on enhancements of the project. Below projects are built by students of CS410 course in Spring 2015 semester.
+						</p><br /><br /><br />
+					</div>	
+					<!-- SCREENSHOTS -->
+					<!-- Add all the screenshots of your project here. You will need a thumbnail version and a fullscreen version of each image. Keep all the images in the proper folder. Add proper title and alt text for each image. -->
+					<h2 style="clear:both;font-weight:bold;"><br />Project Screenshots</h2><br /><br />
+					<div style="clear:both;text-align:center;">
+					<a href="images/fullscreen/1.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_1.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/2.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_2.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/3.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_3.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/4.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_4.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/5.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_5.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/1.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_1.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/2.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_2.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/3.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_3.jpg" width="60" height="60" alt="Red round shape" /></a>
+					<a href="images/fullscreen/4.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures." style="padding-right:10px;"><img src="images/thumbnails/t_4.jpg" width="60" height="60" alt="Red round shape" /></a>
+					</div>
+					<!-- ABOUT THE TEAM -->
+					<div id="fronttrio" style="width:925px;clear:both;">
+						<br /><br /><br />
+						<!-- Give the name of your team here -->
+						<h2 style="text-align:left;color:#005C7A;padding:0;">The Team</h2>
+						<!-- For each team member, add an image and a brief bio -->
+						<div style="width:165px;">
+							<p style="top:40px;left:10px;"><img src="images/team/logo.jpg" width="130px" height="130"/></p>
+							<p style="text-align:center;font-size:14px;"><br /><br />Niti Agrawal<br />Computer Science Department<br />BI Developer</p>
+						</div>
+						<div style="width:165px;">
+							<p style="top:40px;left:10px;"><img src="images/team/logo.jpg" width="130px" height="130"/></p>
+							<p style="text-align:center;font-size:14px;"><br /><br />Niti Agrawal<br />Computer Science Department<br />BI Developer</p>
+						</div>
+						<div style="width:165px;">
+							<p style="top:40px;left:10px;"><img src="images/team/logo.jpg" width="130px" height="130"/></p>
+							<p style="text-align:center;font-size:14px;"><br /><br />Niti Agrawal<br />Computer Science Department<br />BI Developer</p>
+						</div>
+						<div style="width:165px;">
+							<p style="top:40px;left:10px;"><img src="images/team/logo.jpg" width="130px" height="130"/></p>
+							<p style="text-align:center;font-size:14px;"><br /><br />Niti Agrawal<br />Computer Science Department<br />BI Developer</p>
+						</div>
+					</div>
+					<!-- VIDEO DEMO -->
+					<!-- Write the name of your video file. Make sure that the type attribute matches the file format -->
+					<div id="video" style="clear:both;margin:auto;margin-left:0%;">
+						<br />
+						<h2 style="font-weight:bold;">Video Demo</h2><br /><br />
+						<video width="600" controls style="margin-left:10%;">
+							<source src="images/video/movie.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video> 
+						<br /><br /><br /><br />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FOOTER -->
+	<div id="footer"><b>CS410 Project Resource Center</b> - All Rights Reserved 2015<br />
+	Created by Niti Agrawal (UMB Graduate Student)
+	</div>
+</body>
+</html>
